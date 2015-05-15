@@ -1,6 +1,5 @@
 package hkust.cychiuae.javachatroom;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,7 +9,9 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -69,8 +70,24 @@ public class Login extends JFrame {
 		contentPane.add(lblPort);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = txtName.getText();
+				String address = txtAddress.getText();
+				int port = Integer.parseInt(txtPort.getText());
+				login(name, address, port);
+			}
+		});
 		btnLogin.setBounds(91, 288, 117, 29);
 		contentPane.add(btnLogin);
+	}
+	
+	/**
+	 * Handle Login
+	 * */
+	private void login(String name, String address, int port) {
+		dispose();
+		new Client(name, address, port);
 	}
 	
 	public static void main(String[] args) {
