@@ -2,9 +2,13 @@ package hkust.cychiuae.javachatroom;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridBagLayout;
+
 import javax.swing.JTextArea;
+
 import java.awt.GridBagConstraints;
 
 public class Client extends JFrame {
@@ -26,6 +30,13 @@ public class Client extends JFrame {
 	}
 	
 	private void createWindow() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(880, 550);
 		setLocationRelativeTo(null);
