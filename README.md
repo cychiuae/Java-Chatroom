@@ -1,2 +1,2 @@
 # Java-Chatroom
-Trying to following a tutorial to build a Java chatroom
+Trying to follow a tutorial to build a Java chatroom
